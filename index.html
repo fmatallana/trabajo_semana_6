@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Préstamos de Libros</title>
+</head>
+<body>
+    <h2>Formulario de Préstamo de Libros</h2>
+
+    <form id="formPrestamo">
+        <label for="nombre">Nombre del Estudiante:</label><br>
+        <input type="text" id="nombre" required><br><br>
+
+        <label for="titulo">Título del Libro:</label><br>
+        <input type="text" id="titulo" required><br><br>
+
+        <label for="fechaP">Fecha de Préstamo:</label><br>
+        <input type="date" id="fechaP" required><br><br>
+
+        <label for="fechaD">Fecha de Devolución:</label><br>
+        <input type="date" id="fechaD" required><br><br>
+
+        <button type="submit">Registrar Préstamo</button>
+    </form>
+    <script src="conexion.js"></script>
+</body>
+</html>
