@@ -1,0 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Lato', sans-serif;
+    color: #E5EBDD;
+
+    /* Imagen de fondo*/
+    background:
+        linear-gradient(
+            rgba(32, 24, 18, 0.65),
+            rgba(32, 24, 18, 0.78)
+        ),
+        url('https://images.unsplash.com/photo-1507842217343-583bb7270b66')
+        center / cover fixed no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    color: #fff1d6;
+    margin: 0 0 28px;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== FORMULARIO ===== */
+
+
+form {
+    width: 90%;
+    max-width: 380px;
+    padding: 25px;
+    margin: 0 auto;
+    background-color:#ccb177;
+    border: 1px solid #d9c5a3;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ===== ETIQUETAS ===== */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #60452f;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ===== CAMPOS DE ENTRADA ===== */
+
+input {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    margin-bottom: 12px;
+    border: 1px solid #cbb99f;
+    border-radius: 8px;
+    background-color: #fffdf8;
+    color: #33271f;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #55734b;
+    box-shadow: 0 0 0 3px rgba(85, 115, 75, 0.18);
+}
+
+/* ===== BOTÓN DE REGISTRO ===== */
+
+button,
+input[type="submit"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3e5b3a;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s, transform 0.25s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #294329;
+    transform: translateY(-2px);
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ===== MENSAJES DEL SISTEMA ===== */
+
+#mensaje {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background-color: #fffaf0;
+    color: #3e5b3a;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ===== ADAPTACIÓN A CELULARES ===== */
+
+@media (max-width: 480px) {
+    body {
+        padding: 25px 15px;
+        background-attachment: scroll;
+    }
+
+    form {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        margin-bottom: 22px;
+    }
+}

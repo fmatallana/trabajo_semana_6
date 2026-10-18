@@ -1,22 +1,38 @@
 const form = document.getElementById("formPrestamo");
-form.addEventListener("submit",function(e){e.preventDefault();
-    const nombre = document.getElementById("nombre").value;
-    const titulo = document.getElementById("titulo").value;
-    const fechaP = document.getElementById("fechaP").value;
-    const fechaD = document.getElementById("fechaD").value;
-    console.log(nombre, titulo, fechaP, fechaD);
+
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
     const datos = {
-        nombre: nombre,
-        titulo: titulo,
-        fecha_prestamo: fechaP,
-        fecha_devolucion: fechaD
+        nombre: document.getElementById("nombre").value,
+        titulo: document.getElementById("titulo").value,
+        fecha_prestamo: document.getElementById("fechaP").value,
+        fecha_devolucion: document.getElementById("fechaD").value
     };
-    fetch("http://localhost:3000/api/registrar_prestamo", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json" },
-            body: JSON.stringify(datos) })
-            .then(respuesta => respuesta.json())
-            .then(datosRespuesta => { alert("¡Préstamo registrado exitosamente!");
-            });
+
+    try {
+        const respuesta = await fetch(
+            "http://localhost:3000/api/registrar_prestamo",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datos)
+            }
+        );
+
+        const resultado = await respuesta.json();
+
+        if (!respuesta.ok) {
+            throw new Error(resultado.error || "Error al registrar el préstamo");
+        }
+
+        alert(resultado.mensaje);
+        form.reset();
+
+    } catch (error) {
+        console.error("Error en la petición:", error);
+        alert("No se pudo registrar el préstamo: " + error.message);
+    }
 });
